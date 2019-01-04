@@ -1,0 +1,38 @@
+<h2>Articles</h2>
+<h3>All articles:</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <button class="btn" (click)="refresh()"><i class="fa fa-refresh"></i> Refresh</button>
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-success" (click)="createArticle()"><i class="fa fa-plus"></i> New Article</button>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">title</th>
+        <th scope="col">category</th>
+        <th scope="col" colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let article of articles | async">
+        <th scope="row">{{article.id}}</th>
+        <td>{{article.title}}</td>
+        <td>{{article.category}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="updateArticle(article)"><i class="fa fa-edit"></i> Update Article</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteArticle(article.id)"><i class="fa fa-remove"></i> Delete Article</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+<ngbd-article-modal></ngbd-article-modal>
+

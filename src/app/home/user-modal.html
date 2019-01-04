@@ -1,0 +1,52 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+          <label for="username">Username</label>
+          <input [readonly]="openForUpdate" type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">First name is required</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"/>
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last name is required</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="roles">Roles</label>
+        <select multiple formControlName="roles"class="form-control">
+          <option value="ADMIN">Admin</option>
+          <option value="USER">User</option>
+        </select>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <!--<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+    <button [disabled]="submitted && !userForm.valid" type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
+  </div>
+</ng-template>
+<!--
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+-->
