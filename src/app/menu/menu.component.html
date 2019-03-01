@@ -1,0 +1,12 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" *ngFor="let menuItem of menu | async">
+                <a class="nav-link" routerLink="/{{menuItem.path}}">{{menuItem.lbl}}</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+            <b>{{loggedInUserDisplay | async}}</b>
+        </span>
+    </div>
+</nav>
