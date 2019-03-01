@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.gal.fullstack</groupId>
   <artifactId>spring-boot-ui-demo</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2-SNAPSHOT</version>
   
   <properties>
   	<maven-clean-plugin.version>2.6.1</maven-clean-plugin.version>
